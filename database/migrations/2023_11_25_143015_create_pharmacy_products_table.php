@@ -24,6 +24,7 @@ return new class extends Migration
                 ->cascadeOnUpdate();
 
             $table->integer('quantity');
+            $table->string('quality');
             $table->timestamps();
         });
     }
