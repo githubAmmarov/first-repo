@@ -15,15 +15,15 @@ return new class extends Migration
             $table->id();
 
             $table->foreignId('order_id')
-            ->constrained('orders')
-            ->cascadeOnDelete()
-            ->cascadeOnUpdate();
+                ->constrained('orders')
+                ->cascadeOnDelete()
+                ->cascadeOnUpdate();
 
-            $table->foreignId('product_warehouse_id') 
+            $table->foreignId('product_warehouse_id')
             ->constrained('product_warehouses')
             ->cascadeOnDelete()
             ->cascadeOnUpdate();
-            
+
             $table->integer('quantity');
 
             $table->integer('total_price');

@@ -9,10 +9,11 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable ,HasRoles;
 
     /**
      * The attributes that are mass assignable.
@@ -26,6 +27,15 @@ class User extends Authenticatable
         'email',
         'role'
     ];
+
+    protected $table="users";
+
+    /**
+    MY PK IS FK WHERE?
+     **/
+    /**
+    MY FK BELONGS TO?
+     **/
 
     /**
      * The attributes that should be hidden for serialization.
@@ -46,10 +56,8 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
-    /**
-    MY PK IS FK WHERE?
-    **/
-    public  function pharmacy():HasOne 
+
+    public  function pharmacy():HasOne
     {
         return $this->hasOne(Pharmacy::class);
     }
@@ -58,7 +66,7 @@ class User extends Authenticatable
     {
         return $this->hasOne(Warehouse::class);
     }
-    public function favourite():HasOne 
+    public function favourite():HasOne
     {
         return $this->hasOne(Favourite::class);
     }
@@ -66,7 +74,5 @@ class User extends Authenticatable
     {
         return $this->hasMany(Order::class);
     }
-    /**
-      MY FK BELONGS TO?
-     **/
+
 }

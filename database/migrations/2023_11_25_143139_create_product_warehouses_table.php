@@ -23,7 +23,8 @@ return new class extends Migration
                 ->constrained('warehouses')
                 ->cascadeOnDelete()
                 ->cascadeOnUpdate();
-
+                
+                
             $table->integer('quantity');
             $table->timestamps();
         });

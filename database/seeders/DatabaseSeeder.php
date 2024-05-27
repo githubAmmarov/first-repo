@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder
         //  \App\Models\User::factory(10)->create();
 
         //  \App\Models\Product::factory(10)->
-         //count(2)->hasProductWarehouse(3)->
+        //  count(2)->hasProductWarehouse(3)->
         //  create();
 
         //  \App\Models\ProductWarehouse::factory(10)->create();
@@ -25,6 +25,7 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
-        $this->call(OrdersSeeder::class);
+        // $this->call(OrdersSeeder::class);
+        $this->call(RolesPermissionsSeeder::class);
     }
 }
